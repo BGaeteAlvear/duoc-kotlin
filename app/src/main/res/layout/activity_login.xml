@@ -105,7 +105,7 @@
       android:layout_marginStart="8dp"
       android:layout_marginTop="196dp"
       android:text="@string/titulo_login"
-      android:textColor="#F7FE2E"
+      android:textColor="#F3BE26"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
