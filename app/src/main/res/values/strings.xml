@@ -11,4 +11,6 @@
   <string name="login_create_account">Crear un nuevo usuario</string>
   <string name="login_go_login">Volver al Login</string>
   <string name="titulo_login">Los mejores especialistas    en una sola aplicación</string>
+  <string name="titulo_crear_usuario">Registro de usuario</string>
+  <string name="confirmar_password">Confirma contraseña</string>
 </resources>
