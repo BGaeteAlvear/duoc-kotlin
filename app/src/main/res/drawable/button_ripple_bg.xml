@@ -10,6 +10,6 @@
   </item>
 
   <item android:id="@android:id/background"
-        android:drawable="@color/colorAccent"/>
+        android:drawable="#F3BE26"/>
 
 </ripple>
