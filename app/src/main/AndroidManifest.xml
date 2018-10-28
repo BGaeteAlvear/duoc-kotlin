@@ -10,16 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".activities.LoginActivity"
+                  android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SingUpActivity">
+        <activity android:name=".activities.SingUpActivity"
+                  android:windowSoftInputMode="adjustPan">
             </activity>
-        <activity android:name=".activities.ForgotPasswordActivity"></activity>
+        <activity android:name=".activities.ForgotPasswordActivity"
+                  android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>
