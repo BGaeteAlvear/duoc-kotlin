@@ -3,12 +3,14 @@ package com.example.n4c0.kotlinapp.activities
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Patterns
 import android.widget.Toast
-import com.example.n4c0.kotlinapp.R
-import com.example.n4c0.kotlinapp.goToActivity
-import com.example.n4c0.kotlinapp.toast
+import com.example.n4c0.kotlinapp.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sing_up.*
+import java.util.regex.Pattern
 
 class SingUpActivity : AppCompatActivity() {
 
@@ -38,6 +40,38 @@ class SingUpActivity : AppCompatActivity() {
             }
         }
 
+        editTextEmail.validate {
+            editTextEmail.error = if (isValidEmail(it)) null else "El Email no es valido"
+        }
+
+        editTextPassword.validate {
+            editTextPassword.error = if (isValidPassword(it)) null else "El Password no es valido, debe contener 1 numero, 1 mayuscula, 1 minuscula, 1 caracter especial y minimo 4 caracteres "
+        }
+
+        editConfirmPassword.validate {
+            editConfirmPassword.error = if (isValidConfirmPassword(editConfirmPassword.text.toString(), it)) null else "Confirma Password, no son iguales"
+        }
+
+        editTextEmail.addTextChangedListener(object: TextWatcher {
+            override fun afterTextChanged(s: Editable) {
+                if (isValidEmail(editTextEmail.text.toString())){
+                    editTextEmail.error = "Email no valido"
+                }else{
+                    editTextEmail.error = ""
+                }
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+        })
+
     }
 
     private fun singUpbyEmail(email: String, password: String){
@@ -64,4 +98,5 @@ class SingUpActivity : AppCompatActivity() {
                 !password.isNullOrEmpty() &&
                 password === editConfirmPassword.text.toString()
     }
+
 }
