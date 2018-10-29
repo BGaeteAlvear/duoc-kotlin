@@ -23,6 +23,8 @@ class SingUpActivity : AppCompatActivity() {
             goToActivity<LoginActivity>{
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             }
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+            //overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
         }
 
         buttonSingUp.setOnClickListener(){
@@ -43,7 +45,13 @@ class SingUpActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
 
                         toast("Se envio un mensaje a tu correo, Porfavor confirmalo")
-                        val user = mAuth.currentUser
+
+                        goToActivity<LoginActivity>{
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        }
+
+                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+
                     } else {
                         // If sign in fails, display a message to the user.
                         toast("Error al inicar sesion")
