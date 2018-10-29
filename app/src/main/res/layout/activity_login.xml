@@ -107,6 +107,7 @@
           android:background="@drawable/button_ripple_google"
           android:text="@string/login_sign_in_google"
           android:textColor="@color/colorPrimaryText"
+          android:textSize="@dimen/login_text_xl_size"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintHorizontal_bias="0.0"
           app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +121,7 @@
           android:background="@drawable/button_ripple"
           android:text="@string/login_sign_up"
           android:textColor="@color/colorPrimaryText"
-          android:textSize="@dimen/login_text_size"
+          android:textSize="@dimen/login_text_xl_size"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/buttonLogInGoogle" />

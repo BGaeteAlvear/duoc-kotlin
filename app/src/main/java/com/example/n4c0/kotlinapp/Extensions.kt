@@ -11,7 +11,6 @@ import android.widget.EditText
 import android.widget.Toast
 import java.util.regex.Pattern
 
-
 fun Activity.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, duration).show()
 
 fun Activity.toast(resourceId: Int, duration: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, resourceId,duration).show()
@@ -31,17 +30,12 @@ fun EditText.validate(validation: (String) -> Unit){
         }
 
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
         }
-
     })
-
 }
-
 
 fun Activity.isValidEmail(email: String): Boolean{
     val pattern = Patterns.EMAIL_ADDRESS
