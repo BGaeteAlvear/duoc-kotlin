@@ -61,7 +61,7 @@ class SingUpActivity : AppCompatActivity() {
                         }
                     } else {
                         // If sign in fails, display a message to the user.
-                        toast("Error al inicar sesion")
+                        toast("Error al iniciar sesion")
                     }
                 }
     }

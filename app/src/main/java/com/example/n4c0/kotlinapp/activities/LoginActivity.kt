@@ -3,6 +3,8 @@ package com.example.n4c0.kotlinapp.activities
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import com.example.n4c0.kotlinapp.*
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -19,10 +21,13 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
     private val mAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
     private val mGoogleApiClient: GoogleApiClient by lazy { getGoogleApiClient() }
     private val RC_GOOGLE_SIGN_IN = 99
+    private lateinit var progressBar: ProgressBar
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_login)
+
+    progressBar=ProgressBar(this)
 
     buttonLogIn.setOnClickListener{
       val email = editTextEmail.text.toString()
@@ -72,25 +77,36 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
   }
 
   private fun loginByGoogleAccountIntoFirebase(googleAccount: GoogleSignInAccount){
-    val credential = GoogleAuthProvider.getCredential(googleAccount.idToken, null)
+      progressBar.visibility=View.VISIBLE
+      val credential = GoogleAuthProvider.getCredential(googleAccount.idToken, null)
       mAuth.signInWithCredential(credential).addOnCompleteListener(this){
-          toast("Logeado con Google")
+          task->
+          if(task.isSuccessful){
+              action()
+          }else{
+              toast("Ha ocurrido un error por favor verifique su conexión a internet")
+          }
       }
   }
 
   private fun logInByEmail(email: String , password: String){
+      progressBar.visibility=View.VISIBLE
       mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this){
-        task -> if (task.isSuccessful){
-                    if (mAuth.currentUser!!.isEmailVerified){
-                        toast("¡Bienvenido!")
-                    }else{
-                        toast("Necesitas confirmar tu correo")
-                    }
-                }else{
-                    toast("Error al iniciar sesion")
-                }
-      }
+          task ->
+          if (task.isSuccessful){
+              if (mAuth.currentUser!!.isEmailVerified){
+                  action()
+              }else{
+                  toast("Necesitas confirmar tu correo")
+              }
+          }else{
+              toast("Error al iniciar sesion")
+          }
   }
+  }
+    private fun action(){
+        startActivity(Intent(this,MainActivity::class.java))
+    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -106,4 +122,6 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
     override fun onConnectionFailed(p0: ConnectionResult) {
         toast("Connection fail!")
     }
+
+
 }
