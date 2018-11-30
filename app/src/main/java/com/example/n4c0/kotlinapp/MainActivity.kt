@@ -3,6 +3,7 @@ package com.example.n4c0.kotlinapp
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.Toolbar
+import android.view.Menu
 import android.view.MenuItem
 import com.example.mylibrary.ToolbarActivity
 import com.example.n4c0.kotlinapp.adapters.PagerAdapter
@@ -41,7 +42,7 @@ class MainActivity : ToolbarActivity() {
 
     private fun setUpViewPager(adapter: PagerAdapter){
         viewPager.adapter = adapter
-        //viewPager.offscreenPageLimit = adapter.count
+        viewPager.offscreenPageLimit = adapter.count
         viewPager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state: Int) {}
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
@@ -76,5 +77,13 @@ class MainActivity : ToolbarActivity() {
                 else -> false
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean{
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return super.onOptionsItemSelected(item)
     }
 }

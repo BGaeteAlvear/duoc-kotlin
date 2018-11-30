@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.n4c0.kotlinapp.R
+import com.example.n4c0.kotlinapp.models.TotalMessagesEvent
 import com.example.n4c0.kotlinapp.toast
 import com.example.n4c0.kotlinapp.utils.CircleTransform
+import com.example.n4c0.kotlinapp.utils.RxBus
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.*
@@ -42,6 +44,8 @@ class InfoFragment : Fragment() {
 
         //Total messages Firebase Style
         subscribeToTotalMessagesFirebaseStyle()
+
+        subscribeToTotalMessagesEventBusReactiveStyle()
         return _view
     }
 
@@ -76,5 +80,16 @@ class InfoFragment : Fragment() {
                 querySnapshot?.let{_view.textViewInfoTotalMessages.text="${it.size()}"}
             }
         })
+    }
+
+    private fun subscribeToTotalMessagesEventBusReactiveStyle() {
+        RxBus.listen(TotalMessagesEvent::class.java).subscribe({
+            _view.textViewInfoTotalMessages.text="${it.total}"
+        })
+    }
+
+    override fun onDestroyView(){
+        chatSubscription?.remove()
+        super.onDestroyView()
     }
 }
