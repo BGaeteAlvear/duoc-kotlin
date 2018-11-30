@@ -17,5 +17,9 @@ class RatesFragment : Fragment() {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
 
 }
