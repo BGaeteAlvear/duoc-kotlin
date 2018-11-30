@@ -75,9 +75,6 @@ class InfoFragment : Fragment() {
                 }
                 querySnapshot?.let{_view.textViewInfoTotalMessages.text="${it.size()}"}
             }
-
         })
     }
-
-
 }
