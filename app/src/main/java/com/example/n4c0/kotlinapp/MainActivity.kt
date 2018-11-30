@@ -1,6 +1,5 @@
 package com.example.n4c0.kotlinapp
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.Toolbar
@@ -9,7 +8,7 @@ import com.example.mylibrary.ToolbarActivity
 import com.example.n4c0.kotlinapp.adapters.PagerAdapter
 import com.example.n4c0.kotlinapp.fragments.ChatFragment
 import com.example.n4c0.kotlinapp.fragments.RatesFragment
-import com.example.n4c0.kotlinapp.fragments.infoFragment
+import com.example.n4c0.kotlinapp.fragments.InfoFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -34,7 +33,7 @@ class MainActivity : ToolbarActivity() {
 
     private fun getPagerAdapter(): PagerAdapter{
         val adapter = PagerAdapter(supportFragmentManager)
-        adapter.addFragment(infoFragment())
+        adapter.addFragment(InfoFragment())
         adapter.addFragment(RatesFragment())
         adapter.addFragment(ChatFragment())
         return adapter

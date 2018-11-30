@@ -10,16 +10,17 @@
         android:id="@+id/imageViewProfileRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textViewMessageRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:maxWidth="300dp"
         android:paddingBottom="8dp"
@@ -37,7 +38,7 @@
         android:layout_marginBottom="2dp"
         android:layout_marginEnd="4dp"
         android:textStyle="italic"
-        android:textSize="7sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewMessageRight"
         app:layout_constraintEnd_toStartOf="@+id/textViewMessageRight"/>
 

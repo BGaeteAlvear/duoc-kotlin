@@ -87,7 +87,9 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
       mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this){
         task -> if (task.isSuccessful){
                     if (mAuth.currentUser!!.isEmailVerified){
-                        toast("¡Bienvenido!")
+                        goToActivity<MainActivity>{
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        }
                     }else{
                         toast("Necesitas confirmar tu correo")
                     }
