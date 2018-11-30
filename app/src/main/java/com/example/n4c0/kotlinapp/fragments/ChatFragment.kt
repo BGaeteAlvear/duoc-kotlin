@@ -12,7 +12,9 @@ import android.view.ViewGroup
 import com.example.n4c0.kotlinapp.R
 import com.example.n4c0.kotlinapp.adapters.ChatAdapter
 import com.example.n4c0.kotlinapp.models.Message
+import com.example.n4c0.kotlinapp.models.TotalMessagesEvent
 import com.example.n4c0.kotlinapp.toast
+import com.example.n4c0.kotlinapp.utils.RxBus
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.*
@@ -105,14 +107,15 @@ class ChatFragment : Fragment() {
                     messageList.addAll(message.asReversed())
                     adapter.notifyDataSetChanged()
                     _view.recyclerView.smoothScrollToPosition(messageList.size)
+                    RxBus.publish(TotalMessagesEvent(messageList.size))
                 }
             }
         })
     }
 
-    override fun onDestroy(){
+    override fun onDestroyView(){
         chatSubscription?.remove()
-        super.onDestroy()
+        super.onDestroyView()
     }
 
 

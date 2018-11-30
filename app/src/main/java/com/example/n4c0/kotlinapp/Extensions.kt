@@ -43,9 +43,9 @@ fun Activity.isValidEmail(email: String): Boolean{
 }
 
 fun Activity.isValidPassword(password: String): Boolean{
-    val passwordPattern= ""
-    val pattern = Pattern.compile(passwordPattern)
-    return pattern.matcher(password).matches()
+
+
+    return true
 }
 
 fun Activity.isValidConfirmPassword(password: String, confirmPassword: String): Boolean{
