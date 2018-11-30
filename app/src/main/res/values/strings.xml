@@ -1,14 +1,26 @@
 <resources>
-  <string name="app_name">kotlinapp</string>
-  <string name="login_email">Email</string>
-  <string name="login_password">Contraseña</string>
-  <string name="login_confirm_password">Confirmar contraseña</string>
-  <string name="login_sign_in">Entrar</string>
-  <string name="login_sign_up">sign Up</string>
-  <string name="login_reset_password">Recuperar mi contraseña</string>
-  <string name="login_sign_in_google">Inicia sesion con Google</string>
-  <string name="login_forgot_password">Contraseña olvidada</string>
-  <string name="login_create_account">Crear un nuevo usuario</string>
-  <string name="login_go_login">Volver al Login</string>
-  <string name="titulo_login">Los mejores especialistas en una sola aplicación</string>
+    <string name="app_name">kotlinapp</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_confirm_password">Confirmar contraseña</string>
+    <string name="login_sign_in">Entrar</string>
+    <string name="login_sign_up">Crear usuario</string>
+    <string name="login_reset_password">Recuperar mi contraseña</string>
+    <string name="login_sign_in_google">Inicia sesion con Google</string>
+    <string name="login_forgot_password">Contraseña olvidada</string>
+    <string name="login_create_account">Crear un nuevo usuario</string>
+    <string name="login_go_login">Volver al Login</string>
+    <string name="titulo_login">Los mejores especialistas    en una sola aplicación</string>
+    <string name="titulo_crear_usuario">Registro de usuario</string>
+    <string name="confirmar_password">Confirma contraseña</string>
+
+    <string name="navegation_bottom_info">Info</string>
+    <string name="navegation_bottom_rates">Rates</string>
+    <string name="navegation_bottom_chat">Chat</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">TODO</string>
+    <string name="info_label_messages">Total de Mensajes</string>
+    <string name="info_no_name">Nombre incorrecto</string>
 </resources>
